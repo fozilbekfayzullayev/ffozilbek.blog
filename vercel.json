@@ -3,13 +3,16 @@
     {
       "source": "/(.*)",
       "destination": "https://fozilbek.dev/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "fozilbek.vercel.app"
+        }
+      ],
       "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
