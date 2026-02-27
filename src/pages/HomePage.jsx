@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div className='flex justify-center items-center mt-[80px] flex-col md:flex-row md:justify-around'>
       <div className='max-w-[390px] w-full mb-[30px] md:mb-0'>
-        <img className='w-full rounded-[10px] shadow-lg hover:-translate-y-1 hover:scale-105 delay-150 duration-300 ease-in' src={fozilbek} alt="Fozilbek Fayzullayev" width={390} height={453}/>
+        <img className='w-full' src={fozilbek} alt="Fozilbek Fayzullayev" width={390} height={453}/>
       </div>
       <div className='ml-0 md:ml-[55px] text-center md:text-left'>
         <h1 className='text-[2rem] md:text-[3rem] font-heading font-bold text-heading'>Fozilbek Fayzullayev</h1>
