@@ -1,4 +1,4 @@
-import fozilbek from '../assets/img/fozilbek.jpeg'
+import fozilbek from '../assets/img/fozilbek.png'
 import instagram from '../assets/img/instagram-icon.svg'
 import telegram from '../assets/img/telegram-icon.svg'
 import github from '../assets/img/github-icon.svg'
