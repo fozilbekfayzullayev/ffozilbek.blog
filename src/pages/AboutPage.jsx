@@ -3,6 +3,12 @@ import { Link } from "react-router";
 const AboutPage = () => {
   return (
     <div className="max-w-[680px] w-full sm:px-[20px] px-0 mx-auto mt-[40px]">
+      <div className="mb-[30px] flex justify-start">
+        <Link to="/" className="inline-flex items-center gap-2 text-[16px] text-second-text hover:text-orange transition-colors duration-200">
+          &larr; Orqaga
+        </Link>
+      </div>
+
       <div className="mb-[60px]">
         <h1 className="text-center text-[2rem] text-heading font-heading font-semibold mb-[20px]">
         Men haqimda

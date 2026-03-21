@@ -3,8 +3,19 @@ import instagram from "../assets/img/instagram-icon.svg";
 import telegram from "../assets/img/telegram-icon.svg";
 import github from "../assets/img/github-icon.svg";
 import { Link } from "react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { fetchBlogs } from "../services/api";
 
 const HomePage = () => {
+  const queryClient = useQueryClient();
+
+  const prefetchBlogs = () => {
+    queryClient.prefetchQuery({
+      queryKey: ['blogs'],
+      queryFn: fetchBlogs,
+    });
+  };
+
   return (
     <div className="flex justify-center items-center mt-[100px] flex-col md:flex-row md:justify-between">
       <div className="max-w-130 w-full mb-[30px] md:mb-0">
@@ -44,6 +55,7 @@ const HomePage = () => {
         <div className="flex gap-x-[15px] justify-center md:justify-start">
           <Link
             to="blog"
+            onMouseEnter={prefetchBlogs}
             className="bg-orange text-white border-2 border-orange px-[16px] py-[8px] font-heading font-semibold rounded-[10px] hover:bg-white hover:text-orange transition-colors duration-75 ease-in shadow-lg"
           >
             Read Blog

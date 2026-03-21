@@ -1,21 +1,26 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router";
-import { useFetch } from "../hooks/useFetch";
+import { useQuery } from "@tanstack/react-query";
+import { fetchBlogById } from "../services/api";
 import { GetDate } from "../components";
-import { useEffect } from "react";
 
 const BlogPostPage = () => {
   const { id } = useParams();
-  console.log(id);
 
-  const {data,loading,error} = useFetch(`https://683d8dd8199a0039e9e5f0ae.mockapi.io/posts/${id}`)
-
-  console.log(data);
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['blogs', id],
+    queryFn: () => fetchBlogById(id)
+  });
 
 
   return (
     <div className="max-w-[680px] w-full sm:px-[20px] px-0 mx-auto mt-[40px]">
-      {loading && "Loading..."}
+      <div className="mb-[30px] flex justify-start">
+        <Link to="/blog" className="inline-flex items-center gap-2 text-[16px] text-second-text hover:text-orange transition-colors duration-200">
+          &larr; Orqaga
+        </Link>
+      </div>
+      {isLoading && "Yuklanmoqda..."}
       {data && <div className="mb-[60px]">
         <h1 className="text-[2.5rem] font-semibold text-heading capitalize mb-[5px]">
           {data.title}
@@ -33,10 +38,6 @@ const BlogPostPage = () => {
         </Link>{" "}
         mumkin
       </div>
-
-      <Link className="text-blue-500 underline" to={"/blog"}>
-        Orqaga
-      </Link>
     </div>
   );
 };
